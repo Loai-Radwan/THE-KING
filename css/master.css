@@ -114,17 +114,17 @@ a {
     linear-gradient(225deg, white 25%, transparent 25%);
   background-size: 30px 30px;
 }
-.dots{
+.dots {
   background-image: url(../img/dots.png);
   height: 186px;
   width: 204px;
   position: absolute;
 }
-.dots-down{
+.dots-down {
   bottom: 200px;
   right: 10px;
 }
-.dots-up{
+.dots-up {
   top: 200px;
   left: 10px;
 }
@@ -205,13 +205,13 @@ a {
     background-image: url(../img/discount-background2.jpg);
   }
 }
-@keyframes up-down{
-  0%,100%{
+@keyframes up-down {
+  0%,
+  100% {
     transform: translateY(-10px);
   }
-  50%{
+  50% {
     transform: translateY(0);
-
   }
 }
 /* end animation */
@@ -1283,6 +1283,7 @@ header .container .new-nav .links li a i {
 .video {
   padding-top: var(--main-padding);
   padding-bottom: var(--main-padding);
+  position: relative;
 }
 .video .container .holder {
   background-color: var(--secton-color);
@@ -1570,7 +1571,7 @@ footer .container .box .small {
   margin-bottom: 30px;
   transition: var(--main-transition);
 }
-footer .container .box .small:hover{
+footer .container .box .small:hover {
   animation: up-down 2s infinite linear;
 }
 
