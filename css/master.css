@@ -251,11 +251,7 @@ header .container > ul {
     margin: auto;
   }
 }
-header .container > ul > li:last-child:hover .new-nav {
-  z-index: 100;
-  opacity: 1;
-  top: calc(100% + 2px);
-}
+
 header .container > ul > li > a {
   text-decoration: none;
   color: black;
@@ -286,10 +282,10 @@ header .container > ul > li > a::before {
   left: -100%;
   transition: var(--main-transition);
 }
-header .container ul li a:hover::before {
+header .container ul li:hover a::before {
   left: 0;
 }
-header .container > ul > li > a:hover {
+header .container > ul > li:hover > a {
   background-color: #fafafa;
   color: var(--main-color);
 }
@@ -306,6 +302,11 @@ header .container .new-nav {
   z-index: -1;
   border-bottom: 3px var(--main-color) solid;
   transition: top var(--main-transition), opacity var(--main-transition);
+}
+header .container > ul > li:last-child:hover .new-nav {
+  z-index: 100;
+  opacity: 1;
+  top: calc(100% + 2px);
 }
 @media (max-width: 767px) {
   header .container .new-nav {
