@@ -1571,8 +1571,10 @@ footer .container .box .small {
   align-items: center;
   margin-bottom: 30px;
   transition: var(--main-transition);
+  cursor:pointer;
 }
 footer .container .box .small:hover {
+  animation-delay: 0.5s;
   animation: up-down 2s infinite linear;
 }
 
