@@ -848,7 +848,7 @@ header .container .new-nav .links li a i {
 .team-member .container .box {
   position: relative;
 }
-.team-member .container .box .back,
+
 .team-member .container .box::after {
   content: "";
   position: absolute;
@@ -860,8 +860,16 @@ header .container .new-nav .links li a i {
   height: 100%;
 }
 .team-member .container .back {
+  position: absolute;
+  background-color: #f3f3f3;
+  right: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: var(--main-transition);
+  height: 100%;
   width: calc(100% - 60px);
   z-index: -2;
+
 }
 .team-member .container .box::after {
   z-index: -1;
