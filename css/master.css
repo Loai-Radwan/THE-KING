@@ -54,6 +54,20 @@ a {
 /* start coument */
 .special-heading {
   position: relative;
+  width: fit-content;
+  margin:  0 auto;
+}
+.special-heading::before{
+  content: '';
+  position: absolute;
+  width: calc(100% + 60px);
+  height: calc(100% + 20px);
+  top: -10px;
+  left: -30px;
+  background-color: var(--main-color);
+  transition: 0.3s;
+  animation: titleAni   ;
+  animation-timeline: view();
 }
 .special-heading h2 {
   color: black;
@@ -130,6 +144,18 @@ a {
 }
 /* end coument */
 /* start animation */
+@keyframes titleAni {
+  0% , 100%{
+    width: calc(100% + 60px);
+    filter: blur(5px);
+  }
+  
+  20% , 85%{
+    filter: blur(0);
+    width: 0;
+  }
+}
+
 @keyframes up-down {
   0%,
   100% {
@@ -490,7 +516,6 @@ header .container .new-nav .links li a i {
 .articles .container .box:hover {
   box-shadow: -17px 20px 15px rgb(0 0 0 / 10%);
   position: relative;
-  transform: translateY(-15px);
 }
 .articles .container .box:hover .info i {
   animation: arrow-move 0.6s linear infinite;
@@ -718,9 +743,9 @@ header .container .new-nav .links li a i {
   background-color: var(--secton-color);
 }
 .testimonials .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px 40px;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  /* gap: 50px 40px; */
 }
 .testimonials .container .box {
   background-color: white;
@@ -755,6 +780,60 @@ header .container .new-nav .links li a i {
   margin: 10px 0 0;
 }
 /* end testimonials */
+
+/* Sliders */
+.sliders{
+  --quantity : 6;
+  position: relative;
+  width: 90%;
+  height: 350px;
+  overflow: hidden;
+  mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+    margin:  0 auto;
+}
+.sliders .list {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding: 50px 0 0;
+    min-width: calc(200px * var(--quantity));
+}
+
+.sliders .list .item{
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  left: 100%;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: autoRun 10s linear infinite ;
+  animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s );
+}
+
+.sliders:has(:hover) .item {
+  animation-play-state: paused !important;
+  filter: grayscale(1);
+}
+.sliders .item:hover{
+    filter: grayscale(0);
+}
+
+@keyframes autoRun {
+  0%{
+    left: 100%;
+  }
+  100%{
+    left: -100%;
+  }
+}
+
+
+
 /* start team-member  */
 .team-member {
   padding-top: var(--main-padding);
@@ -769,7 +848,7 @@ header .container .new-nav .links li a i {
 .team-member .container .box {
   position: relative;
 }
-.team-member .container .box::before,
+.team-member .container .box .back,
 .team-member .container .box::after {
   content: "";
   position: absolute;
@@ -780,7 +859,7 @@ header .container .new-nav .links li a i {
   transition: var(--main-transition);
   height: 100%;
 }
-.team-member .container .box::before {
+.team-member .container .back {
   width: calc(100% - 60px);
   z-index: -2;
 }
@@ -960,6 +1039,7 @@ header .container .new-nav .links li a i {
   background-color: var(--main-color);
   position: absolute;
   height: 100%;
+  width: 0;
   transition: width 0.5s linear;
 }
 /* end our-skills */
@@ -1067,7 +1147,7 @@ header .container .new-nav .links li a i {
   border: 1px solid #d4d4d4;
   border-radius: 6px;
   text-align: center;
-  width: 75px;
+  width: 80px;
   transition: var(--main-transition);
 }
 .event .container .info .time .unit:hover {
@@ -1081,7 +1161,8 @@ header .container .new-nav .links li a i {
   color: var(--main-color);
   font-size: 35px;
   font-weight: bold;
-  padding: 15px;
+  padding: 10px;
+  text-align: center;
 }
 .event .container .info .time .unit span:last-child {
   padding: 8px 10px;
@@ -1602,3 +1683,59 @@ footer .copyright {
   border-top: 1px solid #444;
 }
 /* end footer  */
+
+
+/* Animation and Effects  */
+
+.fadeIn{
+  animation: fadeIn both ;
+  animation-timeline: view();
+}
+
+
+
+@keyframes fadeIn {
+  0% , 100%{
+    filter: blur(20px);
+    transform: translateX(-500px) scale(0);
+  }
+  30% , 65%{
+    filter: blur(0);
+    transform: translateX(0);
+  }
+  
+}
+
+.autoShow{
+  animation: autoShow  both ;
+  animation-timeline: view();
+}
+
+@keyframes autoShow {
+  0% , 100%{
+    filter: blur(20px);
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% , 65%{
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+.appear{
+  animation: appear both;
+  animation-timeline: view();
+}
+@keyframes appear {
+    0% , 100%{
+    filter: blur(20px);
+
+  }
+  30% , 65%{
+    filter: blur(0);
+
+  }
+}
